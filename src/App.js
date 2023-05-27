@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Loading from "./components/Loading";
 import Empty from "./components/Empty";
+import DogItem from "./components/DogItem";
 
 function App() {
   const [breeds, setBreeds] = useState([]);
@@ -87,12 +88,7 @@ useEffect(() => {
           {dogImages.length > 0 &&
             !isLoading &&
             dogImages.map((imgSrc, index) => (
-              <img
-                key={`${index}-${selectedBreed}`}
-                src={imgSrc}
-                className="img-thumbnail w-25"
-                alt={`${selectedBreed} ${index + 1} of ${dogImages.length}`}
-              />
+              <DogItem imgSrc={imgSrc} alt={`${selectedBreed} ${index + 1} of ${dogImages.length}`}/>
             ))}
         </div>
       </main>
