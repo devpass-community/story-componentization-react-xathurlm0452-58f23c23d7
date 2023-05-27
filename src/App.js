@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import placeholderImg from "./images/dog_walking.svg";
+import Loading from "./components/Loading";
 
 function App() {
   const [breeds, setBreeds] = useState([]);
@@ -84,14 +85,7 @@ useEffect(() => {
             />
           )}
           {isLoading && (
-            <div className="d-flex align-items-center ">
-              <p className="h1 me-2">Loading</p>
-              <div
-                className="spinner-border ms-auto text-primary fs-3"
-                role="status"
-                aria-hidden="true"
-              ></div>
-            </div>
+            <Loading/>
           )}
           {dogImages.length > 0 &&
             !isLoading &&
