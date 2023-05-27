@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import placeholderImg from "./images/dog_walking.svg";
+
 import Loading from "./components/Loading";
+import Empty from "./components/Empty";
 
 function App() {
   const [breeds, setBreeds] = useState([]);
@@ -78,11 +79,7 @@ useEffect(() => {
         )}
         <div className="mt-5 d-flex justify-content-center flex-wrap px-5 mx-5">
           {dogImages.length === 0 && !isLoading && (
-            <img
-              src={placeholderImg}
-              className="mx-auto d-block mt-4 w-50"
-              alt=""
-            />
+            <Empty/>
           )}
           {isLoading && (
             <Loading/>
