@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "./components/Loading";
 import Empty from "./components/Empty";
 import DogItem from "./components/DogItem";
+import Button from "./components/Button";
 
 function App() {
   const [breeds, setBreeds] = useState([]);
@@ -63,15 +64,7 @@ useEffect(() => {
               </option>
             ))}
           </select>
-          <button
-            type="button"
-            className="btn btn-primary mx-2"
-            disabled={!selectedBreed}
-            onClick={searchByBreed}
-            style={{color: "#fff", cursor: "pointer"}}
-          >
-            Search
-          </button>
+          <Button disabled={!selectedBreed} onClick={searchByBreed}/>
         </div>
         {dogImages.length > 0 && !isLoading && (
           <div className="px-5 mx-5 text-end" data-testid="results-count">
